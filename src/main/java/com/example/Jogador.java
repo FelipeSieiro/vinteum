@@ -10,22 +10,30 @@ public class Jogador {
 
     public void receberCarta(Carta carta){
         cartas.add(carta);
-        pontos+= carta.getNumero();
+
+        var pontos = carta.getNumero();
+        if(pontos >10) pontos = 10;
+        this.pontos += pontos;
     }
+
     public void parar(){
         parou = true;
     }
+
     public int getPontos() {
         return pontos;
     }
+
     public List<Carta> getCartas() {
         return cartas;
     }
+
     public boolean parou() {
         return parou;
     }
 
-    
-
+    public boolean estourou() {
+       return pontos > 21;
+    }
 
 }
